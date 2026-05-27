@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GreenGrade WtE Scoring System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  
+  <aside class="side">
+    <div class="logo">
+      <img src="logo.png" alt="GreenGrade Logo" class="logo-img" />
+      <div class="logo-text">GreenGrade</div>
+    </div>
+    <nav class="nav">
+      <button class="on" onclick="scrollToId('overview')">Overview</button>
+      <button onclick="scrollToId('scoring')">Scoring</button>
+      <button onclick="scrollToId('cases')">Cases</button>
+      <button onclick="scrollToId('financial')">Financial Logic</button>
+      <button onclick="scrollToId('roadmap')">Roadmap</button>
+    </nav>
+    <div class="side-note">
+      <b>Decision-support prototype</b>
+      <p>GreenGrade helps assess the gap between today’s WtE project and a circular, bankable future.</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section class="top">
+      <div>
+        <h1>GreenGrade WtE Scoring System</h1>
+        <p class="sub">Indonesia-only Circular WtE readiness assessment for Pertamina collaboration</p>
+      </div>
+      <div class="actions">
+        <button class="btn primary" onclick="openCaseModal('add')">Add Case</button>
+        <button class="btn" onclick="openCaseModal('edit')">Edit Case</button>
+        <button class="btn" onclick="deleteCurrentCase()" style="color: var(--red); border-color: var(--red);">Delete Case</button>
+        <button class="btn" onclick="openImportModal()">Import JSON</button>
+        <button class="btn" onclick="exportJSON()">Export JSON</button>
+        <button class="btn" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </section>
+
+    <div class="notice">Reference simulations only. Scores are author estimates based on publicly available information and user-input data. Results must be validated through pilot project assessment before official rating.</div>
+
+    <section id="overview">
+      <div class="tabs" id="caseTabs"></div>
+      <div class="hero">
+        <div class="grade-card">
+          <div class="grade-top">
+            <div>
+              <div class="over">Overall GreenGrade</div>
+              <div class="letter" id="gradeLetter">C</div>
+            </div>
+            <div class="gscore">
+              <span>Total Score</span>
+              <b id="totalScore">0</b><span>/100</span>
+              <div class="gname" id="gradeName">Conditional</div>
+            </div>
+          </div>
+          <div class="gauge">
+            <div class="needle" id="needle"></div>
+          </div>
+          <div class="scale">
+            <span>D 0</span>
+            <span>C 40</span>
+            <span>B 60</span>
+            <span>A 80</span>
+            <span>100</span>
+          </div>
+          <div class="delta" id="deltaScore">Current state</div>
+        </div>
+        <div class="kpis" id="kpiGrid"></div>
+      </div>
+    </section>
+
+    <section class="grid3">
+      <div class="card panel">
+        <h2>GreenGrade Dimension Scores</h2>
+        <div class="bars" id="dimensionBars"></div>
+      </div>
+      <div class="card panel">
+        <h2>Dimension Radar</h2>
+        <div class="radar-wrap">
+          <svg id="radar" viewBox="0 0 340 300" preserveAspectRatio="xMidYMid meet"></svg>
+        </div>
+      </div>
+      <div class="insights" id="insights"></div>
+    </section>
+
+    <section class="twocol" id="financial">
+      <div class="card panel">
+        <h2>Baseline vs GreenGrade Upgrade</h2>
+        <div class="actions" style="justify-content:flex-start;margin-bottom:16px">
+          <button class="btn small" onclick="setScenario('current')">Current State</button>
+          <button class="btn small green" onclick="simulateUpgrade()">Simulate Upgrade</button>
+        </div>
+        <div class="compare" id="compareGrid"></div>
+        <p class="foot">Financial improvements are illustrative author estimates. Actual IRR, payback, DSCR, and offtake performance require project-level financial validation.</p>
+      </div>
+      <div class="card panel">
+        <h2>Financial Logic</h2>
+        <div class="flow">
+          <div class="step">
+            <b>Current barriers</b>
+            <p>Low buyer trust, low financing access, no committed offtaker, and revenue dependence on electricity.</p>
+          </div>
+          <div class="step">
+            <b>GreenGrade intervention</b>
+            <p>Certification, procurement/offtake, investor disclosure, and MRV strengthen credibility.</p>
+          </div>
+          <div class="step">
+            <b>Economic outcome</b>
+            <p>More stable cash flow, lower perceived risk, and improved bankability profile.</p>
+          </div>
+          <div class="step">
+            <b>Illustrative improvement</b>
+            <p>IRR 8-10% → 12-15%; payback 12-16 → 8-11 years; DSCR 1.0-1.2x → 1.25-1.5x.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card panel" id="scoring">
+      <h2>Full Scoring Form</h2>
+      <div class="formgrid" id="scoringForm"></div>
+    </section>
+
+    <section class="card panel" id="cases">
+      <h2>Case Library</h2>
+      <div class="cases" id="caseLibrary"></div>
+      <p class="foot">Click a case card to load it into the dashboard. Add or edit cases to input real project data.</p>
+    </section>
+
+    <section class="card panel" id="roadmap">
+      <h2>Grade Pathway</h2>
+      <div class="flow-roadmap">
+        <div class="step">
+          <b>Grade A</b>
+          <p>Eligible for PNRE partnership, offtake negotiation, green finance packaging, and annual re-rating.</p>
+        </div>
+        <div class="step">
+          <b>Grade B</b>
+          <p>Transition-ready. Eligible after targeted improvements in low-scoring dimensions.</p>
+        </div>
+        <div class="step">
+          <b>Grade C</b>
+          <p>Conditional. Requires corrective action plan before market activation.</p>
+        </div>
+        <div class="step">
+          <b>Grade D</b>
+          <p>High-risk or incomplete. Requires redesign and better project evidence.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="modalbg" id="caseModal">
+  <div class="modal">
+    <div class="modalhead">
+      <div>
+        <h2 id="caseModalTitle">Add Case</h2>
+        <p>Input project metadata and scoring evidence. Unknown data should be scored conservatively.</p>
+      </div>
+      <button class="btn small" onclick="closeModals()">Close</button>
+    </div>
+    <div class="metagrid" id="caseFields"></div>
+    <h2 style="font-size:18px;color:var(--navy);margin:24px 0 16px">Metric Scores</h2>
+    <div class="formgrid" id="modalScoring"></div>
+    <div class="actions" style="justify-content:flex-end;margin-top:24px">
+      <button class="btn" onclick="closeModals()">Cancel</button>
+      <button class="btn primary" onclick="saveCaseFromModal()">Save Case</button>
+    </div>
+  </div>
+</div>
+
+<div class="modalbg" id="importModal">
+  <div class="modal">
+    <div class="modalhead">
+      <div>
+        <h2>Import JSON</h2>
+        <p>Paste a JSON array of cases or a single case object. Imported data will be saved locally.</p>
+      </div>
+      <button class="btn small" onclick="closeModals()">Close</button>
+    </div>
+    <div class="field">
+      <label for="jsonInput">JSON data</label>
+      <textarea id="jsonInput" placeholder='[{"id":"new-case","name":"Example WtE Project",...}]'></textarea>
+    </div>
+    <div class="actions" style="justify-content:flex-end;margin-top:24px">
+      <button class="btn" onclick="closeModals()">Cancel</button>
+      <button class="btn primary" onclick="importJSON()">Import</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
