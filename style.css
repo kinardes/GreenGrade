@@ -37,7 +37,6 @@ button, input, select, textarea { font-family: 'Poppins', sans-serif; }
   gap: 24px;
 }
 
-/* Sidebar & Logo (Diperbesar) */
 .side {
   position: sticky;
   top: 24px;
@@ -58,7 +57,7 @@ button, input, select, textarea { font-family: 'Poppins', sans-serif; }
 }
 
 .logo-img {
-  width: 64px; /* LOGO DIGEDEIN */
+  width: 64px; 
   height: 64px;
   object-fit: contain;
 }
@@ -115,7 +114,6 @@ button, input, select, textarea { font-family: 'Poppins', sans-serif; }
   line-height: 1.5;
 }
 
-/* Top Actions */
 .top {
   display: flex;
   justify-content: space-between;
@@ -181,7 +179,6 @@ h1 {
   margin-bottom: 24px;
 }
 
-/* Dashboard Tabs - Fix Text Cutoff */
 .tabs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -209,7 +206,8 @@ h1 {
 
 .tab b {
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Batasi teks 2 baris agar rapi, tidak terpotong elipsis kasar */
+  line-clamp: 2;
+  -webkit-line-clamp: 2; 
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: 14px;
@@ -232,7 +230,6 @@ h1 {
   box-shadow: var(--sh);
 }
 
-/* Hero Section */
 .hero {
   display: grid;
   grid-template-columns: 400px 1fr;
@@ -283,7 +280,6 @@ h1 {
   margin-top: 16px; display: inline-flex; background: rgba(255,255,255,0.15); border-radius: 6px; padding: 8px 12px; font-size: 12px; font-weight: 500;
 }
 
-/* KPI Cards - Disesuaikan agar isi lega dan tidak terpotong */
 .kpis {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -302,7 +298,6 @@ h1 {
 .kpi span { display: block; color: var(--muted); font-size: 12px; margin-top: auto; padding-top: 12px; }
 .confidence { display: inline-flex; margin-top: 12px; border-radius: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; background: #F1F5F9; color: #475569; width: fit-content; }
 
-/* Mid Section Grid */
 .grid3 {
   display: grid;
   grid-template-columns: 1fr;
@@ -314,7 +309,6 @@ h1 {
 .panel { padding: 24px; }
 .panel h2 { font-size: 16px; font-weight: 600; margin: 0 0 20px; color: var(--navy); }
 
-/* Bar Chart Responsif */
 .bars { display: grid; gap: 16px; }
 .bar { display: grid; grid-template-columns: minmax(130px, 1.5fr) 2fr 40px; gap: 12px; align-items: center; }
 .bar label { font-size: 13px; color: #334155; font-weight: 500; line-height: 1.3; }
@@ -322,7 +316,6 @@ h1 {
 .fill { height: 100%; border-radius: 999px; background: var(--blue); transition: width .4s ease; }
 .bar b { text-align: right; font-size: 13px; font-weight: 600; }
 
-/* Radar SVG Container */
 .radar-wrap { display: grid; place-items: center; width: 100%; }
 .radar-wrap svg { width: 100%; height: auto; max-width: 300px; }
 
@@ -332,7 +325,6 @@ h1 {
 .insight h3 { margin: 0 0 6px; font-size: 14px; font-weight: 600; color: var(--navy); }
 .insight ul { margin: 0; padding-left: 16px; color: #475569; font-size: 13px; line-height: 1.6; }
 
-/* Two Col & Financial */
 .twocol { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; margin-bottom: 24px; }
 
 .compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
@@ -347,7 +339,6 @@ h1 {
 .step b { display: block; color: var(--navy); font-size: 14px; font-weight: 600; margin-bottom: 8px; }
 .step p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
 
-/* Form Scoring - Dibuat lega dan rapi */
 .formgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .dim { border: 1px solid var(--line); background: white; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 20px;}
 .dimhead { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 12px;}
@@ -375,7 +366,6 @@ h1 {
 }
 .cap { margin-top: 6px; color: #94A3B8; font-size: 11px; line-height: 1.4; }
 
-/* Cases Cards Library */
 .cases { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
 .case { border: 1px solid var(--line); background: white; border-radius: 12px; padding: 20px; text-align: left; cursor: pointer; position: relative; transition: all 0.2s;}
 .case:hover { box-shadow: var(--sh); border-color: #CBD5E1; }
@@ -385,7 +375,6 @@ h1 {
 .miniGrade { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; color: white; font-weight: 700; font-size: 14px; }
 .foot { color: var(--muted); font-size: 13px; margin-top: 20px; text-align: center;}
 
-/* Modals */
 .modalbg { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); display: none; place-items: center; z-index: 100; padding: 24px; }
 .modal { width: min(900px, 100%); max-height: 90vh; overflow-y: auto; background: white; border-radius: 20px; border: 1px solid var(--line); padding: 32px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
 .modalhead { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; border-bottom: 1px solid var(--line); padding-bottom: 20px;}
@@ -394,7 +383,6 @@ h1 {
 .field label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
 .field textarea { min-height: 100px; resize: vertical; }
 
-/* Responsif Mobile & Tablet */
 @media(max-width:1200px){
   .app { grid-template-columns: 1fr; }
   .side { height: auto; position: relative; top: 0; padding: 20px; }
@@ -415,4 +403,26 @@ h1 {
 
 #scoring, #cases, #roadmap {
   margin-bottom: 24px;
+}
+
+.modal::-webkit-scrollbar {
+  width: 16px; 
+}
+
+.modal::-webkit-scrollbar-track {
+  background: transparent; 
+  margin: 20px 0; 
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: #CBD5E1; 
+  border-radius: 10px; 
+  border: 5px solid #FFFFFF; 
+  background-clip: padding-box; 
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background-color: #94A3B8; 
+  border: 5px solid #FFFFFF;
+  background-clip: padding-box; 
 }
