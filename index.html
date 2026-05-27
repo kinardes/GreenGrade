@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GreenGrade WtE Scoring System</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Green Grade WtE Scoring System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <div class="app">
-  
   <aside class="side">
     <div class="logo">
-      <img src="logo.png" alt="GreenGrade Logo" class="logo-img" />
-      <div class="logo-text">GreenGrade</div>
+      <div class="mark">G</div>
+      <div>Green Grade</div>
     </div>
     <nav class="nav">
       <button class="on" onclick="scrollToId('overview')">Overview</button>
@@ -26,14 +25,13 @@
     </nav>
     <div class="side-note">
       <b>Decision-support prototype</b>
-      <p>GreenGrade helps assess the gap between today’s WtE project and a circular, bankable future.</p>
+      <p>Green Grade helps assess the gap between today’s WtE project and a circular, bankable future.</p>
     </div>
   </aside>
-
   <main class="main">
     <section class="top">
       <div>
-        <h1>GreenGrade WtE Scoring System</h1>
+        <h1>Green Grade WtE Scoring System</h1>
         <p class="sub">Indonesia-only Circular WtE readiness assessment for Pertamina collaboration</p>
       </div>
       <div class="actions">
@@ -45,16 +43,14 @@
         <button class="btn" onclick="window.print()">Print / Save PDF</button>
       </div>
     </section>
-
     <div class="notice">Reference simulations only. Scores are author estimates based on publicly available information and user-input data. Results must be validated through pilot project assessment before official rating.</div>
-
     <section id="overview">
       <div class="tabs" id="caseTabs"></div>
       <div class="hero">
         <div class="grade-card">
           <div class="grade-top">
             <div>
-              <div class="over">Overall GreenGrade</div>
+              <div class="over">Overall Green Grade</div>
               <div class="letter" id="gradeLetter">C</div>
             </div>
             <div class="gscore">
@@ -78,24 +74,22 @@
         <div class="kpis" id="kpiGrid"></div>
       </div>
     </section>
-
     <section class="grid3">
       <div class="card panel">
-        <h2>GreenGrade Dimension Scores</h2>
+        <h2>Green Grade Dimension Scores</h2>
         <div class="bars" id="dimensionBars"></div>
       </div>
       <div class="card panel">
         <h2>Dimension Radar</h2>
         <div class="radar-wrap">
-          <svg id="radar" viewBox="0 0 340 300" preserveAspectRatio="xMidYMid meet"></svg>
+          <svg id="radar" width="340" height="300" viewBox="0 0 340 300"></svg>
         </div>
       </div>
       <div class="insights" id="insights"></div>
     </section>
-
     <section class="twocol" id="financial">
       <div class="card panel">
-        <h2>Baseline vs GreenGrade Upgrade</h2>
+        <h2>Baseline vs Green Grade Upgrade</h2>
         <div class="actions" style="justify-content:flex-start;margin-bottom:16px">
           <button class="btn small" onclick="setScenario('current')">Current State</button>
           <button class="btn small green" onclick="simulateUpgrade()">Simulate Upgrade</button>
@@ -111,7 +105,7 @@
             <p>Low buyer trust, low financing access, no committed offtaker, and revenue dependence on electricity.</p>
           </div>
           <div class="step">
-            <b>GreenGrade intervention</b>
+            <b>Green Grade intervention</b>
             <p>Certification, procurement/offtake, investor disclosure, and MRV strengthen credibility.</p>
           </div>
           <div class="step">
@@ -125,21 +119,18 @@
         </div>
       </div>
     </section>
-
     <section class="card panel" id="scoring">
       <h2>Full Scoring Form</h2>
       <div class="formgrid" id="scoringForm"></div>
     </section>
-
     <section class="card panel" id="cases">
       <h2>Case Library</h2>
       <div class="cases" id="caseLibrary"></div>
       <p class="foot">Click a case card to load it into the dashboard. Add or edit cases to input real project data.</p>
     </section>
-
     <section class="card panel" id="roadmap">
       <h2>Grade Pathway</h2>
-      <div class="flow-roadmap">
+      <div class="flow">
         <div class="step">
           <b>Grade A</b>
           <p>Eligible for PNRE partnership, offtake negotiation, green finance packaging, and annual re-rating.</p>
@@ -160,7 +151,6 @@
     </section>
   </main>
 </div>
-
 <div class="modalbg" id="caseModal">
   <div class="modal">
     <div class="modalhead">
@@ -179,7 +169,6 @@
     </div>
   </div>
 </div>
-
 <div class="modalbg" id="importModal">
   <div class="modal">
     <div class="modalhead">
@@ -199,7 +188,6 @@
     </div>
   </div>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
